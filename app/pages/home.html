@@ -6,8 +6,7 @@
 
 <title>RenRossi | Home</title>
 
-<!-- Bootstrap core CSS -->
-<link rel="stylesheet" type="text/css" href="http://localhost:31337/RenRossi/app/assets/css/bootstrap.min.css" />
+
 
 <!-- Font faces -->
 <link rel="stylesheet" type="text/css" href="http://localhost:31337/RenRossi/app/assets/css/fonts.css" />
@@ -19,14 +18,24 @@
 </head>
 
 <body>
-	<div class="container-fluid">
-		<div id="sun-shine"></div>
-		<div id="sun-rays">
-			<img src="http://localhost:31337/RenRossi/app/assets/images/sun-rays.png" alt="Sun">
+	<div class="elements">
+		<div id="sun" class="planet">
+			<div class="planet-elements">
+				<div id="sun-shine"></div>				
+				<div id="sun-rays">
+					<img src="http://localhost:31337/RenRossi/app/assets/images/sun-rays.png" alt="Sun">
+				</div>				 
+				<div id="sun-core">
+					<img src="http://localhost:31337/RenRossi/app/assets/images/sun-core.png" alt="Sun">
+				</div>
+				<div class="category-shape visible-delay"></div>
+				<div class="category-indicator visible-delay"></div>
+				<div class="category-label visible-delay">
+					<p>Who Am I ?</p>	
+				</div>
+			</div>			
 		</div>
-		<div id="sun-core">
-			<img src="http://localhost:31337/RenRossi/app/assets/images/sun-core.png" alt="Sun">
-		</div>
+		<div class="category-content invisible-on-load"></div>
 	</div>
 	
 	<!-- JQuery -->
@@ -36,7 +45,7 @@
 	<script type="text/javascript" src="http://localhost:31337/RenRossi/app/assets/js/bootstrap.min.js"></script>
 
 	<!-- Custom Main JS -->
-	<script type="text/javascript" src="http://localhost:31337/RenRossi/app/assets/js/main.js"></script>
+	<script type="text/javascript" src="http://localhost:31337/RenRossi/app/assets/js/home.js"></script>
 
 </body>
 </html>

@@ -12,24 +12,18 @@ body
     overflow:hidden;
 	width: 100%;
   	height: 100%;
-	background-color: #000;	
+  	
 }
 
 .container-fluid
 {
-	min-height: 100%;
-	min-width: 600px;
-}
-
-.container-fluid
-{
-	min-height: 100%;
-	min-width: 600px;
 	
-	-webkit-animation: start 1.5s ease-in-out forwards !important;
-  	-moz-animation: start 1.5s ease-in-out forwards !important;
-  	-o-animation: start 1.5s ease-in-out forwards !important;
-  	animation: start 1.5s ease-in-out forwards !important;
+}
+
+.elements
+{
+	min-height: 100%;
+	min-width: 600px;
 }
 
 *:hover,
@@ -43,17 +37,72 @@ body
  	-webkit-box-shadow: none !important;
 }
 
+.visible-delay,
+.invisible-on-load
+{
+	display: none;
+}
+
+.elements
+{
+	-webkit-animation: start 1.5s ease-in-out forwards !important;
+  	-moz-animation: start 1.5s ease-in-out forwards !important;
+  	-o-animation: start 1.5s ease-in-out forwards !important;
+  	animation: start 1.5s ease-in-out forwards, fade-in 1.5s ease-in-out forwards !important;
+}
+
+.planet,
+.category-content
+{
+	position: absolute;
+}
+
+.planet-elements
+{
+	position: relative;
+	width: 100% !important;
+  	height: 100% !important;
+}
+
+.category-content
+{
+	min-width: 100%;
+  	min-height: 100%;
+  	top: 0;
+  	left: 0;
+  	z-index: 20;	
+}
+
+.category-content .data
+{
+	position: relative;
+
+  	font-family: "Let's Go Digital", sans-serif;
+	font-size: 1.4em;
+	
+	color: #59C6FE;	
+	
+	padding: 100px;
+}
+
+.planet#sun
+{
+	animation: sun-born 1.5s ease-in-out forwards !important;
+}
+
 #sun-shine
 {
 	position: absolute;
+	width: 76%;
+  	height: 76%;
+  	top: 12%;
+  	left: 12%;
   	z-index: 0;
+  	
 	border-radius: 50%;
 	border: none;
 
-	animation:
-		sun-core-grow 1.5s ease-in-out forwards,
-		sun-core-position 1.5s ease-in-out forwards, 
-		shine 1s linear infinite alternate  !important;
+	animation: shine 1s linear infinite alternate !important;
 }
 
 
@@ -61,6 +110,7 @@ body
 {
 	position: absolute;
   	z-index: 1;
+  	
 	border-radius: 50%;
 	border: none;
 	
@@ -74,15 +124,16 @@ body
   	-o-animation:
 		position 1.5s ease-in-out forwards, 
 		shine 1.5s ease-in-out infinite alternate !important;
-*/
+
   	animation:
   		sun-rays-position 1.5s ease-in-out forwards !important;
-	
+*/	
 }
 
 #sun-rays img
 {
-
+	width: 100% !important;
+  	height: 100% !important;
 
 /*	
 	-webkit-animation: grow 1.5s ease-in-out forwards !important;
@@ -92,15 +143,18 @@ body
   	animation: sun-rays-grow 1.5s ease-in-out forwards !important;	
 */
 
-	animation:
-		sun-rays-grow 1.5s ease-in-out forwards,
-		burn 60s linear infinite !important;
+	animation: burn 90s linear infinite !important;
 }
 
 #sun-core
 {
 	position: absolute;
+	width: 76%;
+  	height: 76%;
+  	top: 12%;
+  	left: 12%;
   	z-index: 2;
+  	
 	border-radius: 50%;
 	border: none;
 	
@@ -114,24 +168,38 @@ body
   	-o-animation:
 		position 1.5s ease-in-out forwards, 
 		shine 1.5s ease-in-out infinite alternate !important;
-*/	
+
   	animation:
 		sun-core-position 1.5s ease-in-out forwards !important;
-
+*/	
 }
 
 #sun-core img
 {
-
+	width: 100%;
+  	height: 100%;	
 /*	
 	-webkit-animation: grow 1.5s ease-in-out forwards !important;
   	-moz-animation: grow 1.5s ease-in-out forwards !important;
   	-o-animation: grow 1.5s ease-in-out forwards !important;
-*/
-  	animation: sun-core-grow 1.5s ease-in-out forwards !important;	
 
+  	animation: sun-core-grow 1.5s ease-in-out forwards !important;	
+ */
 }
 
+.planet#sun.not-exploring
+{
+	animation: sun-zoom-out 0.7s ease-in-out forwards !important;
+}
+
+.planet#sun.explore
+{
+	animation: sun-zoom-in 0.7s ease-in-out forwards !important;
+}
+
+
+
+/*
 #sun-rays.open
 {
   	animation: sun-rays-zoom-position 0.7s ease-in-out forwards !important;
@@ -158,52 +226,198 @@ body
 	animation: surface-position 1.5s ease-in-out forwards !important;
 }
 */
+
+.category#about
+{
+	position: absolute; 
+	width: 170px;
+  	height: 80px;
+	top: 58%;
+  	left: 56%;
+ 	z-index: 10;
+}
+
+.category-shape 
+{
+	position: absolute; 	
+  	width: 170px;
+  	height: 80px;
+  	top: 70%;
+  	left: 70%;
+	z-index: 10;
+  	
+  	border-bottom: 4px solid #59C6FE;
+  	border-left: 3px solid #59C6FE;
+  	
+  	transform: perspective(200px) rotateX(-45deg);
+    transform-origin: 100% 50%;
+}
+
+.category-indicator
+{
+	position: absolute; 	
+	width: 10px;
+  	height: 10px; 	
+  	top: 70%;
+  	left: 58.5%;
+  	z-index: 10;
+  	
+	border-radius: 50%;
+	border: none;
+	
+	background: #59C6FE;
+	
+	animation: pulse 1.5s ease-in-out infinite alternate !important;	
+}
+
+.category-label
+{
+	position: absolute;
+  	bottom: 30px;
+  	right: -80px;
+  	z-index: 10;
+  	
+  	font-family: "Let's Go Digital", sans-serif;
+	font-size: 1.4em;
+	margin: 0;
+	
+	color: #59C6FE;
+}
+
 @keyframes start
 {
 	from 
 	{
 		background-color: #fff;
-		opacity: 0;
   	}
 
   	to 
   	{
   		background-color: #000;
+  	}
+}
+
+@keyframes fade-in
+{
+	from
+	{
+		opacity: 0;
+  	}
+
+  	to
+  	{
   		opacity: 1;
   	}
 }
 
+@keyframes sun-born
+{
+	from 
+	{
+		width: 100px;
+		height: 100px;
+		top: calc(50% - 50px);
+  		left: calc(50% - 50px);
+  	}
+
+  	to 
+  	{
+  		width: 300px;
+		height: 300px;
+  		top: calc(50% - 150px);
+  		left: calc(50% - 150px);
+  	}
+}
+
+@keyframes sun-zoom-in
+{
+	from 
+	{
+		width: 300px;
+		height: 300px;
+		top: calc(50% - 150px);
+  		left: calc(50% - 150px);
+  	}
+
+  	to 
+  	{
+  		width: 2000px;
+		height: 2000px;
+  		top: calc(50% - 1000px);
+  		left: calc(50% - 1000px);
+  	}
+}
+
+@keyframes sun-zoom-out
+{
+	from 
+	{
+		width: 2000px;
+		height: 2000px;
+  		top: calc(50% - 1000px);
+  		left: calc(50% - 1000px);
+  	}
+
+  	to 
+  	{
+  		width: 300px;
+		height: 300px;
+		top: calc(50% - 150px);
+  		left: calc(50% - 150px);
+  	}
+}
+
+@keyframes shine
+{
+	from 
+	{
+		box-shadow:
+    		0 0 6px 3px #f7f7ba,
+    		0 0 15px 4px #D78F3B;
+  	}
+
+  	to 
+  	{
+  		box-shadow:
+    		0 0 6px 10px #FFFDFD,
+    		0 0 15px 10px #eeceaa;
+  	}
+}
+
+
+@keyframes burn 
+{	
+	from 
+	{
+    	transform: rotate(0deg);
+  	}
+  	
+  	to 
+  	{
+    	transform: rotate(360deg);
+  	}
+}
+
+@-webkit-keyframes pulse
+{
+	from 
+	{
+    	box-shadow:
+    		0 0 5px 1px #fff,
+    		0 0 10px 2px #59C6FE;
+  	}
+
+  	to 
+  	{
+  	
+  		box-shadow:
+    		0 0 5px 2px #fff,
+    		0 0 10px 3px #59C6FE;	
+  	}
+}
+
+/*
 @keyframes sun-rays-grow
-{
-	from 
-	{
-		width: 142px;
-		height: 142px;
-  	}
-
-  	to 
-  	{
-  		width: 450px;
-		height: 450px;
-  	}
-}
-
-@keyframes sun-rays-position
-{
-	from 
-	{
-		top: calc(50% - 71px);
-  		left: calc(50% - 71px);
-  	}
-
-  	to 
-  	{
-  		top: calc(50% - 225px);
-  		left: calc(50% - 225px);
-  	}
-}
-
-@keyframes sun-core-grow
 {
 	from 
 	{
@@ -213,12 +427,27 @@ body
 
   	to 
   	{
-  		width: 340px;
-		height: 340px;
+  		width: 300px;
+		height: 300px;
   	}
 }
 
-@keyframes sun-core-position
+@keyframes sun-rays-grow
+{
+	from 
+	{
+		width: 100px;
+		height: 100px;
+  	}
+
+  	to 
+  	{
+  		width: 300px;
+		height: 300px;
+  	}
+}
+
+@keyframes sun-rays-position
 {
 	from 
 	{
@@ -228,8 +457,38 @@ body
 
   	to 
   	{
-  		top: calc(50% - 170px);
-  		left: calc(50% - 170px);
+  		top: calc(50% - 150px);
+  		left: calc(50% - 150px);
+  	}
+}
+
+@keyframes sun-core-grow
+{
+	from 
+	{
+		width: 76px;
+		height: 76px;
+  	}
+
+  	to 
+  	{
+  		width: 226px;
+		height: 226px;
+  	}
+}
+
+@keyframes sun-core-position
+{
+	from 
+	{
+		top: calc(50% - 38px);
+  		left: calc(50% - 38px);
+  	}
+
+  	to 
+  	{
+  		top: calc(50% - 113px);
+  		left: calc(50% - 113px);
   	}
 }
 
@@ -238,15 +497,15 @@ body
 	from 
 	{
 		box-shadow:
-    		0 0 10px 5px #f7f7ba,
-    		0 0 20px 7px #D78F3B;
+    		0 0 6px 3px #f7f7ba,
+    		0 0 15px 4px #D78F3B;
   	}
 
   	to 
   	{
   		box-shadow:
-    		0 0 10px 15px #FFFDFD,
-    		0 0 20px 15px #eeceaa;
+    		0 0 6px 10px #FFFDFD,
+    		0 0 15px 10px #eeceaa;
   	}
 }
 
@@ -254,14 +513,14 @@ body
 {
 	from 
 	{
-		width: 500px;
-		height: 500px;
+		width: 300px;
+		height: 300px;
   	}
 
   	to 
   	{
-  		width: 506px;
-		height: 506px;
+  		width: 303px;
+		height: 303px;
   	}
 }
 
@@ -282,8 +541,8 @@ body
 {
 	from 
 	{
-		top: calc(50% - 250px);
-  		left: calc(50% - 250px);
+		top: calc(50% - 150px);
+  		left: calc(50% - 150px);
   	}
 
   	to 
@@ -297,8 +556,8 @@ body
 {
 	from 
 	{
-  		width: 500px;
-  		height: 500px;
+  		width: 300px;
+  		height: 300px;
   	}
 
   	to 
@@ -312,8 +571,8 @@ body
 {
 	from 
 	{
-		top: calc(50% - 175px);
-  		left: calc(50% - 175px);
+		top: calc(50% - 113px);
+  		left: calc(50% - 113px);
   	}
 
   	to 
@@ -327,8 +586,8 @@ body
 {
 	from 
 	{
-  		width: 350px;
-  		height: 350px;
+  		width: 226px;
+  		height: 226px;
   	}
 
   	to 
@@ -337,3 +596,4 @@ body
   		height: 2000px;
   	}
 }
+*/
